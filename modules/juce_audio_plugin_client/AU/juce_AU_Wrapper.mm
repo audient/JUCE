@@ -536,8 +536,16 @@ public:
             outParameterInfo.defaultValue = juceFilter->getParameterDefaultValue (index);
             jassert (outParameterInfo.defaultValue >= outParameterInfo.minValue
                       && outParameterInfo.defaultValue <= outParameterInfo.maxValue);
-            outParameterInfo.unit = kAudioUnitParameterUnit_Generic;
-
+            
+            if (juceFilter->getParameterNumSteps(index) == 2)
+            {
+                outParameterInfo.unit = kAudioUnitParameterUnit_Boolean;
+            }
+            else
+            {
+                outParameterInfo.unit = kAudioUnitParameterUnit_Generic;
+            }
+                
             return noErr;
         }
 
