@@ -590,7 +590,7 @@ public:
             {
                 outParameterInfo.unit = kAudioUnitParameterUnit_Generic;
             }
-                
+
             return noErr;
         }
 
