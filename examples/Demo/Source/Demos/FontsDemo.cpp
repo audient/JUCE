@@ -34,9 +34,9 @@ class FontsDemo  : public Component,
 {
 public:
     FontsDemo()
-        : heightLabel (String::empty, "Height:"),
-          kerningLabel (String::empty, "Kerning:"),
-          scaleLabel  (String::empty, "Scale:"),
+        : heightLabel (String(), "Height:"),
+          kerningLabel (String(), "Kerning:"),
+          scaleLabel  (String(), "Scale:"),
           styleLabel ("Style"),
           boldToggle ("Bold"),
           italicToggle ("Italic")
@@ -111,7 +111,7 @@ public:
     //==============================================================================
     void paint (Graphics& g) override
     {
-        fillTiledBackground (g);
+        fillStandardDemoBackground (g);
     }
 
     void resized() override

@@ -40,6 +40,7 @@ namespace CommandIDs
     static const int showAudioSettings      = 0x30200;
     static const int aboutBox               = 0x30300;
     static const int allWindowsForward      = 0x30400;
+    static const int toggleDoublePrecision  = 0x30500;
 }
 
 ApplicationCommandManager& getCommandManager();
@@ -69,6 +70,8 @@ public:
     void fileDragExit (const StringArray& files);
     void filesDropped (const StringArray& files, int, int);
 
+    void menuBarActivated (bool isActive);
+
     StringArray getMenuBarNames();
     PopupMenu getMenuForIndex (int topLevelMenuIndex, const String& menuName);
     void menuItemSelected (int menuItemID, int topLevelMenuIndex);
@@ -86,6 +89,9 @@ public:
 
     GraphDocumentComponent* getGraphEditor() const;
 
+    bool isDoublePrecisionProcessing();
+    void updatePrecisionMenuItem (ApplicationCommandInfo& info);
+
 private:
     //==============================================================================
     AudioDeviceManager deviceManager;
@@ -96,7 +102,7 @@ private:
     KnownPluginList::SortMethod pluginSortMethod;
 
     class PluginListWindow;
-    ScopedPointer <PluginListWindow> pluginListWindow;
+    ScopedPointer<PluginListWindow> pluginListWindow;
 
     void showAudioSettings();
 

@@ -40,8 +40,8 @@
     real-world app that requires more powerful waveform display, you'll probably want to
     create your own component instead.
 */
-class AudioVisualiserComponent  : public Component,
-                                  private Timer
+class JUCE_API AudioVisualiserComponent  : public Component,
+                                           private Timer
 {
 public:
     /** Creates a visualiser with the given number of channels. */
@@ -112,7 +112,7 @@ public:
     */
     void getChannelAsPath (Path& result, const Range<float>* levels, int numLevels, int nextSample);
 
-    //==========================================================================
+    //==============================================================================
     /** @internal */
     void paint (Graphics&) override;
 
@@ -123,7 +123,6 @@ private:
 
     OwnedArray<ChannelInfo> channels;
     int numSamples, inputSamplesPerBlock;
-    float interpolation;
     Colour backgroundColour, waveformColour;
 
     void timerCallback() override;

@@ -102,7 +102,7 @@ struct BallComponent  : public Component
         return position.y < 400.0f && position.x >= -10.0f;
     }
 
-    void paint (Graphics& g)
+    void paint (Graphics& g) override
     {
         g.setColour (colour);
         g.fillEllipse (2.0f, 2.0f, getWidth() - 4.0f, getHeight() - 4.0f);
@@ -168,7 +168,7 @@ public:
 
     void paint (Graphics& g) override
     {
-        fillTiledBackground (g);
+        fillStandardDemoBackground (g);
     }
 
 private:
@@ -237,7 +237,8 @@ private:
     Button* createButton()
     {
         Image juceIcon = ImageCache::getFromMemory (BinaryData::juce_icon_png,
-                                                    BinaryData::juce_icon_pngSize);
+                                                    BinaryData::juce_icon_pngSize)
+                            .rescaled (128, 128);
 
         ImageButton* b = new ImageButton ("ImageButton");
 

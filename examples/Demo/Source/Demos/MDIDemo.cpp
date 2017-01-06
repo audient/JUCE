@@ -86,7 +86,7 @@ public:
     File getLastDocumentOpened() override
     {
         // not interested in this for now
-        return File::nonexistent;
+        return File();
     }
 
     void setLastDocumentOpened (const File& /*file*/) override
@@ -187,7 +187,7 @@ public:
 
     void paint (Graphics& g) override
     {
-        fillTiledBackground (g);
+        fillStandardDemoBackground (g);
     }
 
     void resized() override
